@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tripu ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030305;
+    color:white;
+    font-family:'Cormorant Garamond',serif;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+/* ================= PASSWORD ================= */
+
+#lock{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:
+        radial-gradient(circle at center,#24111d 0%,#08060a 45%,#000 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:opacity 1.5s ease, visibility 1.5s;
+}
+
+#lock.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.lock-content{
+    width:90%;
+    max-width:550px;
+}
+
+.lock-small{
+    font-family:Montserrat;
+    font-size:10px;
+    letter-spacing:6px;
+    opacity:.5;
+    margin-bottom:25px;
+}
+
+.lock-title{
+    font-size:clamp(45px,9vw,90px);
+    font-weight:300;
+    font-style:italic;
+}
+
+.lock-sub{
+    margin-top:15px;
+    font-size:19px;
+    opacity:.65;
+}
+
+#password{
+    margin-top:35px;
+    width:280px;
+    max-width:90%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,.4);
+    padding:15px;
+    color:white;
+    text-align:center;
+    outline:none;
+    font-family:Montserrat;
+    letter-spacing:3px;
+}
+
+.enter{
+    margin-top:25px;
+    padding:13px 32px;
+    border:1px solid rgba(255,255,255,.4);
+    background:transparent;
+    color:white;
+    border-radius:50px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.enter:hover{
+    background:white;
+    color:#111;
+}
+
+#error{
+    margin-top:15px;
+    color:#d99;
+    font-family:Montserrat;
+    font-size:12px;
+    opacity:0;
+}
+
+/* ================= PARTICLES ================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) scale(1);
+        opacity:.1;
+    }
+    50%{
+        transform:translateY(-120px) scale(1.8);
+        opacity:.8;
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:
+        radial-gradient(circle at 50% 70%,rgba(92,35,62,.6),transparent 35%),
+        linear-gradient(#000 0%,#090509 60%,#160b12 100%);
+}
+
+.hero-content{
+    text-align:center;
+    position:relative;
+    z-index:2;
+    animation:heroIn 3s ease forwards;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:scale(1.2);
+        filter:blur(15px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+}
+
+.chapter{
+    font-family:Montserrat;
+    font-size:10px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    opacity:.45;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(65px,14vw,160px);
+    font-weight:300;
+    line-height:.8;
+    font-style:italic;
+}
+
+.hero-name{
+    margin-top:30px;
+    font-size:35px;
+    letter-spacing:8px;
+}
+
+.hero-line{
+    margin-top:30px;
+    font-size:21px;
+    opacity:.65;
+}
+
+.scroll{
+    position:absolute;
+    bottom:35px;
+    font-family:Montserrat;
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.45;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(8px);}
+}
+
+/* ================= LOTUS ================= */
+
+.lotus{
+    position:absolute;
+    width:260px;
+    height:260px;
+    left:50%;
+    top:55%;
+    transform:translate(-50%,-50%);
+    filter:drop-shadow(0 0 35px rgba(255,120,180,.35));
+}
+
+.petal{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:80px;
+    height:150px;
+    border-radius:80% 20% 80% 20%;
+    transform-origin:bottom center;
+    background:linear-gradient(135deg,#7d314e,#e09ab5,#552034);
+    opacity:.75;
+    animation:bloom 5s ease-in-out infinite alternate;
+}
+
+.p1{transform:translate(-50%,-100%) rotate(0deg);}
+.p2{transform:translate(-50%,-100%) rotate(45deg);}
+.p3{transform:translate(-50%,-100%) rotate(90deg);}
+.p4{transform:translate(-50%,-100%) rotate(135deg);}
+.p5{transform:translate(-50%,-100%) rotate(180deg);}
+.p6{transform:translate(-50%,-100%) rotate(225deg);}
+.p7{transform:translate(-50%,-100%) rotate(270deg);}
+.p8{transform:translate(-50%,-100%) rotate(315deg);}
+
+@keyframes bloom{
+    from{scale:.75;opacity:.35;}
+    to{scale:1;opacity:.8;}
+}
+
+/* ================= NIGHT ================= */
+
+.night{
+    background:
+        linear-gradient(to bottom,rgba(0,0,0,.15),#030305),
+        url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+}
+
+.moon{
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:#fff;
+    box-shadow:
+        0 0 40px rgba(255,255,255,.7),
+        0 0 120px rgba(255,255,255,.25);
+    top:15%;
+    right:12%;
+    animation:moonFloat 6s ease-in-out infinite;
+}
+
+@keyframes moonFloat{
+    50%{transform:translateY(15px);}
+}
+
+.night-content{
+    text-align:center;
+    z-index:2;
+    max-width:750px;
+    padding:30px;
+}
+
+.date{
+    font-family:Montserrat;
+    letter-spacing:10px;
+    font-size:13px;
+    opacity:.6;
+    margin-bottom:30px;
+}
+
+.night h2{
+    font-size:clamp(50px,9vw,100px);
+    font-weight:300;
+}
+
+.night p{
+    font-size:22px;
+    line-height:1.7;
+    opacity:.75;
+    margin-top:25px;
+}
+
+/* ================= STORY ================= */
+
+.story{
+    background:#080609;
+}
+
+.story-content{
+    width:90%;
+    max-width:1100px;
+    text-align:center;
+}
+
+.story h2{
+    font-size:clamp(50px,9vw,100px);
+    font-weight:300;
+}
+
+.story-text{
+    font-size:21px;
+    opacity:.6;
+    margin:20px auto 50px;
+}
+
+.memories{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.memory{
+    height:430px;
+    border-radius:5px;
+    overflow:hidden;
+    position:relative;
+    transform:rotate(var(--r));
+    transition:1s;
+}
+
+.memory:hover{
+    transform:rotate(0) scale(1.04);
+    z-index:3;
+}
+
+.memory img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:saturate(.7);
+    transition:1s;
+}
+
+.memory:hover img{
+    transform:scale(1.08);
+    filter:saturate(1);
+}
+
+.memory:nth-child(1){--r:-3deg;}
+.memory:nth-child(2){--r:2deg;}
+.memory:nth-child(3){--r:-2deg;}
+
+@media(max-width:700px){
+    .memories{
+        grid-template-columns:1fr;
+    }
+
+    .memory{
+        height:380px;
+    }
+}
+
+/* ================= BOOK ================= */
+
+.book{
+    background:
+        radial-gradient(circle at center,rgba(100,45,65,.35),transparent 40%),
+        #080508;
+    perspective:1500px;
+}
+
+.book-content{
+    text-align:center;
+    z-index:2;
+    max-width:800px;
+}
+
+.book-visual{
+    width:230px;
+    height:300px;
+    margin:0 auto 45px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:bookFloat 5s ease-in-out infinite;
+}
+
+@keyframes bookFloat{
+    50%{transform:translateY(-15px) rotateY(-8deg);}
+}
+
+.book-cover{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,#411d2d,#12090d);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 30px 70px rgba(0,0,0,.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.book-cover span{
+    font-family:Montserrat;
+    font-size:9px;
+    letter-spacing:5px;
+    opacity:.5;
+}
+
+.book-cover strong{
+    font-size:32px;
+    font-weight:400;
+    margin-top:15px;
+}
+
+.book-content h2{
+    font-size:clamp(50px,9vw,100px);
+    font-weight:300;
+}
+
+.book-content p{
+    font-size:23px;
+    line-height:1.7;
+    opacity:.7;
+    margin-top:20px;
+}
+
+.book-highlight{
+    font-size:38px!important;
+    color:white;
+    opacity:1!important;
+    font-style:italic;
+}
+
+/* ================= FUTURE ================= */
+
+.future{
+    background:
+        linear-gradient(rgba(5,3,6,.65),rgba(5,3,6,.95)),
+        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+}
+
+.future-content{
+    width:90%;
+    max-width:1100px;
+    text-align:center;
+}
+
+.future h2{
+    font-size:clamp(60px,10vw,110px);
+    font-weight:300;
+}
+
+.future-sub{
+    font-size:20px;
+    opacity:.6;
+    margin:15px 0 50px;
+}
+
+.future-scenes{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.scene{
+    padding:35px 15px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    transition:.6s;
+}
+
+.scene:hover{
+    transform:translateY(-15px);
+    background:rgba(255,255,255,.12);
+}
+
+.scene-icon{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.scene h3{
+    font-size:23px;
+    font-weight:400;
+}
+
+.scene p{
+    font-family:Montserrat;
+    font-size:11px;
+    opacity:.5;
+    margin-top:8px;
+}
+
+.future-ending{
+    margin-top:50px;
+    font-size:25px;
+    font-style:italic;
+    opacity:.8;
+}
+
+@media(max-width:700px){
+    .future-scenes{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+/* ================= BIRTHDAY ================= */
+
+.birthday{
+    background:
+        radial-gradient(circle at center,rgba(139,49,82,.6),transparent 30%),
+        #050305;
+}
+
+.birthday-content{
+    text-align:center;
+    z-index:2;
+}
+
+.birthday-small{
+    font-family:Montserrat;
+    letter-spacing:6px;
+    font-size:10px;
+    opacity:.5;
+}
+
+.birthday h1{
+    margin-top:25px;
+    font-size:clamp(60px,13vw,150px);
+    line-height:.85;
+    font-weight:300;
+    font-style:italic;
+    animation:birthdayGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes birthdayGlow{
+    from{text-shadow:0 0 5px rgba(255,255,255,.1);}
+    to{text-shadow:0 0 50px rgba(255,160,200,.5);}
+}
+
+.birthday-name{
+    margin-top:35px;
+    font-size:35px;
+    letter-spacing:8px;
+}
+
+.birthday-message{
+    margin-top:25px;
+    font-size:20px;
+    opacity:.6;
+}
+
+/* ================= WISH ================= */
+
+.wish{
+    background:
+        radial-gradient(circle at center,rgba(100,38,70,.5),transparent 40%),
+        #050305;
+}
+
+.wish-content{
+    width:90%;
+    max-width:700px;
+    text-align:center;
+}
+
+.wish h2{
+    font-size:clamp(60px,10vw,110px);
+    font-weight:300;
+    font-style:italic;
+}
+
+.wish p{
+    font-size:21px;
+    opacity:.65;
+    line-height:1.7;
+}
+
+textarea{
+    width:100%;
+    height:160px;
+    margin-top:35px;
+    padding:20px;
+    border-radius:5px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.2);
+    color:white;
+    resize:none;
+    outline:none;
+    font-family:'Cormorant Garamond';
+    font-size:20px;
+}
+
+textarea::placeholder{
+    color:rgba(255,255,255,.35);
+}
+
+.wish-button{
+    margin-top:20px;
+    padding:15px 35px;
+    border-radius:50px;
+    background:white;
+    color:#111;
+    border:none;
+    cursor:pointer;
+    font-family:Montserrat;
+    transition:.4s;
+}
+
+.wish-button:hover{
+    transform:scale(1.06);
+}
+
+.final-message{
+    display:none;
+    margin-top:30px;
+    font-size:24px;
+    font-style:italic;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+    position:fixed;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:100;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    border:1px solid white;
+    opacity:.4;
+    cursor:pointer;
+}
+
+.dot:hover{
+    opacity:1;
+    transform:scale(1.5);
+}
+
+@media(max-width:700px){
+    .nav{
+        display:none;
+    }
+
+    .moon{
+        width:130px;
+        height:130px;
+        right:8%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+
+<div id="lock">
+
+<div class="lock-content">
+
+<div class="lock-small">A PRIVATE LITTLE WORLD</div>
+
+<div class="lock-title">
+For you.
+</div>
+
+<div class="lock-sub">
+Some stories aren't meant for everyone.
+</div>
+
+<input
+id="password"
+type="password"
+placeholder="Enter the secret"
+>
+
+<br>
+
+<button class="enter" onclick="unlock()">
+Enter ❤️
+</button>
+
+<div id="error">
+That's not it... try again.
+</div>
+
+</div>
+
+</div>
+
+
+<!-- NAV -->
+
+<div class="nav">
+<div class="dot" onclick="go('beginning')"></div>
+<div class="dot" onclick="go('night')"></div>
+<div class="dot" onclick="go('story')"></div>
+<div class="dot" onclick="go('book')"></div>
+<div class="dot" onclick="go('future')"></div>
+<div class="dot" onclick="go('birthday')"></div>
+<div class="dot" onclick="go('wish')"></div>
+</div>
+
+
+<!-- HER BEGINNING -->
+
+<section class="hero" id="beginning">
+
+<div class="particles" id="particles"></div>
+
+<div class="lotus">
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+<div class="petal p6"></div>
+<div class="petal p7"></div>
+<div class="petal p8"></div>
+</div>
+
+<div class="hero-content">
+
+<div class="chapter">Chapter One</div>
+
+<h1>Her<br>Beginning</h1>
+
+<div class="hero-line">
+And a little girl came into this world...
+</div>
+
+<div class="hero-name">
+TRIPU ❤️
+</div>
+
+</div>
+
+<div class="scroll">
+SCROLL TO BEGIN
+</div>
+
+</section>
+
+
+<!-- NIGHT -->
+
+<section class="night" id="night">
+
+<div class="moon"></div>
+
+<div class="night-content">
+
+<div class="chapter">Chapter Two</div>
+
+<div class="date">
+23 · 09 · 2003
+</div>
+
+<h2>
+The Night<br>She Was Born
+</h2>
+
+<p>
+While the world was sleeping,
+<br>
+the moon was quietly watching over a very special night.
+</p>
+
+<p>
+A little girl was born...
+<br>
+and she had no idea how beautiful her story would become.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- OUR STORY -->
+
+<section class="story" id="story">
+
+<div class="story-content">
+
+<div class="chapter">Chapter Three</div>
+
+<h2>Our Story</h2>
+
+<div class="story-text">
+Some moments become memories.<br>
+Some memories become a story.
+</div>
+
+<div class="memories">
+
+<div class="memory">
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=90">
+</div>
+
+<div class="memory">
+<img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?auto=format&fit=crop&w=900&q=90">
+</div>
+
+<div class="memory">
+<img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=900&q=90">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOK -->
+
+<section class="book" id="book">
+
+<div class="book-content">
+
+<div class="book-visual">
+
+<div class="book-cover">
+
+<span>THE STORY OF</span>
+
+<strong>US</strong>
+
+</div>
+
+</div>
+
+<div class="chapter">Chapter Four</div>
+
+<h2>The Book</h2>
+
+<p>
+Everyone says people come into our lives
+<br>
+and become chapters.
+</p>
+
+<p>
+But I never wanted you to be a chapter.
+</p>
+
+<p class="book-highlight">
+I wanted you to be the whole book.
+</p>
+
+<p>
+A book that never ends.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- WHAT IF -->
+
+<section class="future" id="future">
+
+<div class="future-content">
+
+<div class="chapter">Chapter Five</div>
+
+<h2>What If...</h2>
+
+<div class="future-sub">
+Just a little story I sometimes imagine.
+</div>
+
+<div class="future-scenes">
+
+<div class="scene">
+<div class="scene-icon">💍</div>
+<h3>The Engagement</h3>
+<p>THE BEGINNING OF FOREVER</p>
+</div>
+
+<div class="scene">
+<div class="scene-icon">🤍</div>
+<h3>The Wedding</h3>
+<p>ONE BEAUTIFUL DAY</p>
+</div>
+
+<div class="scene">
+<div class="scene-icon">🏡</div>
+<h3>Our Home</h3>
+<p>A PLACE OF OUR OWN</p>
+</div>
+
+<div class="scene">
+<div class="scene-icon">👨‍👩‍👧</div>
+<h3>Our Family</h3>
+<p>OUR LITTLE WORLD</p>
+</div>
+
+</div>
+
+<div class="future-ending">
+And somehow, through every version of the future...
+<br>
+I'd still choose you.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BIRTHDAY -->
+
+<section class="birthday" id="birthday">
+
+<div class="birthday-content">
+
+<div class="birthday-small">
+THE MOST IMPORTANT CHAPTER
+</div>
+
+<h1>
+Happy<br>Birthday
+</h1>
+
+<div class="birthday-name">
+TRIPU ❤️
+</div>
+
+<div class="birthday-message">
+To the girl who became my favourite part of the story.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MAKE A WISH -->
+
+<section class="wish" id="wish">
+
+<div class="wish-content">
+
+<div class="chapter">
+The Last Page
+</div>
+
+<h2>
+Make a Wish ✨
+</h2>
+
+<p>
+It's your birthday, Beta.
+<br>
+Close your eyes.
+<br>
+Make a wish.
+<br>
+Then write it here.
+</p>
+
+<textarea id="wishText"
+placeholder="Write your wish here..."></textarea>
+
+<button class="wish-button" onclick="sendWish()">
+Send My Wish ❤️
+</button>
+
+<div class="final-message" id="finalMessage">
+Your wish is written here forever. ❤️
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* PASSWORD */
+
+function unlock(){
+
+    const password =
+    document.getElementById("password").value;
+
+    const error =
+    document.getElementById("error");
+
+    if(password === "TRIPU2003"){
+
+        document
+        .getElementById("lock")
+        .classList.add("hide");
+
+        document.body.style.overflow = "auto";
+
+    }else{
+
+        error.style.opacity = "1";
+
+    }
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("password")
+.addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+        unlock();
+    }
+
+});
+
+
+/* PARTICLES */
+
+const particleBox =
+document.getElementById("particles");
+
+for(let i=0;i<80;i++){
+
+    const p =
+    document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left =
+    Math.random()*100+"%";
+
+    p.style.top =
+    Math.random()*100+"%";
+
+    p.style.animationDelay =
+    Math.random()*8+"s";
+
+    p.style.animationDuration =
+    (5+Math.random()*8)+"s";
+
+    particleBox.appendChild(p);
+
+}
+
+
+/* NAVIGATION */
+
+function go(id){
+
+    document
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* WISH */
+
+function sendWish(){
+
+    const text =
+    document.getElementById("wishText").value;
+
+    if(text.trim()===""){
+
+        alert("First write your wish ❤️");
+
+        return;
+
+    }
+
+    document
+    .getElementById("finalMessage")
+    .style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
