@@ -53,7 +53,26 @@ p{font-size:clamp(16px,4.3vw,19px);line-height:1.75}.small{font-size:12px;letter
 </head>
 <body>
 <div id="lock"><div class="lockbox"><div class="lockheart">♡</div><h2>For Tripu</h2><p style="margin-top:10px;opacity:.65;font-size:14px">A little world made only for you.</p><input id="password" type="password" inputmode="numeric" maxlength="6" placeholder="••••••"><button id="enterBtn" class="btn" type="button">Enter ♡</button><div id="error"></div></div></div>
-<div id="afterPassword"><div class="video-wrap"><div class="small">ONE LITTLE THING FIRST ♡</div><h2 style="margin-top:14px">Before we begin…</h2><video id="afterPasswordVideo" class="special-video" controls playsinline preload="metadata"><source src="images/after-password.mp4" type="video/mp4"></video><button class="btn" type="button" onclick="closeAfterPassword()">Continue ♡</button></div></div>
+<div id="afterPassword">
+  <div class="video-wrap" id="introVideoOne">
+    <div class="small">ONE LITTLE THING FIRST ♡</div>
+    <h2 style="margin-top:14px">Before we begin…</h2>
+    <video id="storySaverVideo" class="special-video" controls playsinline preload="metadata">
+      <source src="images/StorySaver.net-somelazyartss-Video-1790089499241~2.mp4" type="video/mp4">
+    </video>
+    <p class="soft">Tap play ♡</p>
+    <button class="btn" type="button" onclick="showSecondIntro()">One more… ♡</button>
+  </div>
+
+  <div class="video-wrap" id="introVideoTwo" style="display:none">
+    <div class="small">AND ONE MORE ♡</div>
+    <video id="flowerGiftVideo" class="special-video" controls playsinline preload="metadata">
+      <source src="images/꽃선물.mp4" type="video/mp4">
+    </video>
+    <p class="soft">Tap play ♡</p>
+    <button class="btn" type="button" onclick="closeAfterPassword()">Begin ♡</button>
+  </div>
+</div>
 <section class="section active" id="step1">
 <svg id="sakura" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
 <path class="branch" d="M-80 720 C100 620 150 430 315 330 C390 280 420 170 455 70"/><path class="twig" d="M100 600 C180 550 250 500 320 425"/><path class="twig" d="M160 505 C225 440 270 355 290 265"/><path class="twig" d="M270 390 C335 350 380 290 410 215"/>
@@ -84,14 +103,14 @@ p{font-size:clamp(16px,4.3vw,19px);line-height:1.75}.small{font-size:12px;letter
 <section class="section" id="bookVideo"><div class="content"><div class="small">US BEING US 😂❤️</div><h2 style="margin-top:15px">Not every moment had to be serious… 😂</h2><video id="tagLoveVideo" class="special-video" controls playsinline preload="metadata"><source src="images/tag your love 😘.mp4" type="video/mp4"></video><p class="soft">Some moments were just cute, funny, and completely us. ❤️</p><button class="btn" onclick="go(5)">Okay, enough cuteness 😂 →</button></div></section>
 <section class="section" id="step5"><div class="content">
 <div class="what on"><div class="small">WHAT IF</div><h2>Sometimes I wondered…</h2><p class="soft">what if it had always been us? ♡</p><button class="btn" onclick="nextWhat()">Imagine ♡</button></div>
-<div class="what"><img src="images/file_000000009e60821196cd0784d92a13ca.png"><h2>What if…</h2><p>one day, it really became us? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_00000000d7788211bb0b53cb346bd572.png"><h2>What if…</h2><p>one day, it really became us? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
 <div class="what"><img src="images/file_0000000055dc82119108a8ba964c803e.png"><h2>What if…</h2><p>I got to call you mine, forever? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
 <div class="what"><img src="images/file_0000000023e48211b9282b378d279e56.png"><h2>What if…</h2><p>we built our own little world? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
-<div class="what"><img src="images/file_00000000caaac8211bceea495cc123161.png"><h2>What if…</h2><p>our little world became a little bigger? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
-<div class="what"><img src="images/file_000000000d7482119efa5ebbf5b9b418.png"><h2>What if…</h2><p>ordinary days became my favourite days? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
-<div class="what"><img src="images/file_00000000539082118159d6319dcee4de.png"><h2>What if…</h2><p>we got to see the whole world together? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
-<div class="what"><img src="images/file_000000087a08211aa7125c98b4b702d.png"><h2>What if…</h2><p>after all those years… it was still you? ♡</p><button class="btn" onclick="nextWhat()">One last page…</button></div>
-<div class="what"><img src="images/file_00000009e60821196cd0784d92a13ca.png"><h2>Maybe it was only a “what if”…</h2><p class="soft">but it was a beautiful one. ♡</p><button class="btn" onclick="go(6)">Continue ♡</button></div>
+<div class="what"><img src="images/file_00000000539082118159d6319dcee4de.png"><h2>What if…</h2><p>our little world became a little bigger? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_00000000caac8211bceea495cc123161.png"><h2>What if…</h2><p>ordinary days became my favourite days? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_000000000d7482119efa5ebbf5b9b418.png"><h2>What if…</h2><p>we got to see the whole world together? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_0000000087a08211aa7125c98b4b702d.png"><h2>What if…</h2><p>after all those years… it was still you? ♡</p><button class="btn" onclick="nextWhat()">One last page…</button></div>
+<div class="what"><img src="images/file_000000009e60821196cd0784d92a13ca.png"><h2>Maybe it was only a “what if”…</h2><p class="soft">but it was a beautiful one. ♡</p><button class="btn" onclick="go(6)">Continue ♡</button></div>
 </div></section>
 
 <section class="section" id="step6"><div id="flies"></div><div class="content"><div id="beforeBirthday"><p>And after everything I wanted to show you…</p><h2>there's just one thing left to say.</h2><div class="bigheart" onclick="birthdayReveal()">❤️</div><div class="small">TAP THE HEART</div></div><div id="birthday"><div class="small">23 · 09</div><h1 style="color:#ffd6c2">Happy Birthday,<br>Tripu ❤️</h1><p>I hope this year gives you the kind of happiness you deserve.</p><p class="soft">Keep smiling, Beta. It has always looked beautiful on you. ♡</p><p style="margin-top:18px;font-size:clamp(20px,5vw,25px)">I love you so much, Beta 💋💞💞</p><p>I may not be beside you today… but I still wanted your day to feel a little special.</p><button class="btn" onclick="go(7)">One last thing… ✨</button></div></div></section>
@@ -105,14 +124,27 @@ const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
 function unlock(){
  const pass=$("#password").value.trim();
- if(pass==="092003"){ $("#lock").style.display="none"; $("#error").textContent=""; $("#afterPassword").style.display="flex"; }
+ if(pass==="092003"){ $("#lock").style.display="none"; $("#error").textContent=""; $("#introVideoOne").style.display="block"; $("#introVideoTwo").style.display="none"; $("#afterPassword").style.display="flex"; }
  else { $("#error").textContent="That isn't our date ♡"; }
 }
 window.unlock=unlock;
 $("#enterBtn").addEventListener("click",unlock);
 $("#password").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
 
-window.closeAfterPassword=function(){const v=$("#afterPasswordVideo");if(v)v.pause();$("#afterPassword").style.display="none";window.scrollTo(0,0)};
+window.showSecondIntro=function(){
+ const a=$("#storySaverVideo"); if(a) a.pause();
+ $("#introVideoOne").style.display="none";
+ $("#introVideoTwo").style.display="block";
+ window.scrollTo(0,0);
+};
+window.closeAfterPassword=function(){
+ const a=$("#storySaverVideo"), b=$("#flowerGiftVideo");
+ if(a) a.pause(); if(b) b.pause();
+ $("#afterPassword").style.display="none";
+ $("#introVideoOne").style.display="block";
+ $("#introVideoTwo").style.display="none";
+ window.scrollTo(0,0);
+};
 window.goBookVideo=function(){$$("video").forEach(v=>v.pause());$$(".section").forEach(s=>s.classList.remove("active"));$("#bookVideo").classList.add("active");window.scrollTo(0,0)};
 window.go=function(n){
  $$("video").forEach(v=>v.pause());
@@ -143,4 +175,13 @@ for(let i=0;i<28;i++){const f=document.createElement("span");f.className="firefl
 window.birthdayReveal=function(){$("#beforeBirthday").style.display="none";$("#birthday").style.display="block"};
 
 window.sendWish=function(){
- const wish=$(
+ const wish=$("#wish").value.trim();
+ if(!wish){alert("Pehle apni wish likho, Beta ✨");return}
+ const msg=`Tripu made a birthday wish ✨\n\n“${wish}”`;
+ $("#ending").style.display="block";
+ setTimeout(()=>{window.location.href="https://wa.me/919990905498?text="+encodeURIComponent(msg)},350);
+};
+})();
+</script>
+</body>
+</html>
