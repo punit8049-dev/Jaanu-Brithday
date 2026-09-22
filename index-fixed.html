@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tripu ♡</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#05070d;color:#fff;font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+button,input,textarea{font:inherit} button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.section{display:none;min-height:100svh;width:100%;position:relative;overflow:hidden;align-items:center;justify-content:center;padding:35px 18px;text-align:center}
+.section.active{display:flex;animation:fade .8s ease}.content{position:relative;z-index:10;width:min(94%,720px);margin:auto}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+h1{font-size:clamp(38px,10vw,68px);line-height:1.08;font-weight:400}
+h2{font-size:clamp(27px,7vw,44px);line-height:1.25;font-weight:400}
+p{font-size:clamp(16px,4.3vw,19px);line-height:1.75}.small{font-size:12px;letter-spacing:4px;text-transform:uppercase;opacity:.7}.soft{color:#f7cbd8}
+.btn{margin-top:27px;padding:14px 27px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.btn:active{transform:scale(.96)}
+#lock{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(circle at 50% 30%,#33243e,#11101b 50%,#050509)}
+.lockbox{width:min(100%,390px);padding:38px 24px;border-radius:28px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);backdrop-filter:blur(18px);text-align:center}
+.lockheart{font-size:50px;margin-bottom:15px;animation:beat 1.6s infinite}@keyframes beat{50%{transform:scale(1.13)}}
+#password{width:100%;margin-top:22px;padding:15px;border-radius:15px;border:1px solid rgba(255,255,255,.2);outline:none;background:rgba(0,0,0,.25);color:#fff;text-align:center;letter-spacing:6px;font-size:20px}
+#error{min-height:20px;margin-top:12px;color:#ff9caf;font-size:13px}
+#step1{background:radial-gradient(circle at 50% 45%,#182440,#09101e 55%,#02050a)}
+#sakura{position:absolute;inset:0;width:100%;height:100%;z-index:1}.branch{fill:none;stroke:#291915;stroke-width:9;stroke-linecap:round}.twig{fill:none;stroke:#42251f;stroke-width:3.5;stroke-linecap:round}
+.flower{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom .8s forwards}@keyframes bloom{to{transform:scale(1)}}
+.petal{position:absolute;z-index:3;top:-25px;width:10px;height:14px;border-radius:80% 20% 70% 30%;background:#f6a8be;animation:fall linear infinite}@keyframes fall{to{transform:translate(80px,110vh) rotate(600deg)}}
+.hero{text-shadow:0 4px 28px #000}.trip{margin-top:18px;font-size:clamp(43px,12vw,78px);color:#ffc1d3}
+#step2{background:linear-gradient(#030815,#09152b 58%,#111a2b)}.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{from{opacity:.15}to{opacity:1;box-shadow:0 0 8px #fff}}
+.moon{position:absolute;top:12%;right:12%;width:74px;height:74px;border-radius:50%;background:#f8f1da;box-shadow:0 0 28px rgba(255,244,205,.3)}
+.moon:after{content:"";position:absolute;width:68px;height:76px;top:-3px;left:-11px;border-radius:50%;background:#071126}
+.cloud{position:absolute;left:-230px;width:190px;height:35px;border-radius:50%;background:rgba(255,255,255,.06);filter:blur(9px);animation:cloud 26s linear infinite}.c1{top:28%}.c2{top:43%;animation-duration:34s}
+@keyframes cloud{to{transform:translateX(calc(100vw + 500px))}}
+.shooting{position:absolute;top:22%;left:-100px;width:90px;height:1px;background:linear-gradient(90deg,transparent,#fff);transform:rotate(-35deg);animation:shoot 8s 3s infinite}
+@keyframes shoot{0%,80%{opacity:0;transform:translate(0,0) rotate(-35deg)}83%{opacity:1}95%,100%{opacity:0;transform:translate(120vw,55vh) rotate(-35deg)}}
+#afterPassword{display:none;position:fixed;inset:0;z-index:9000;background:#050509;align-items:center;justify-content:center;padding:20px;text-align:center;overflow:auto}
+.video-wrap{width:min(94vw,720px);margin:auto}.special-video{width:100%;max-height:72vh;object-fit:contain;background:#000;border-radius:22px;box-shadow:0 18px 55px rgba(0,0,0,.55);display:block;margin:18px auto}
+#bookVideo{background:radial-gradient(circle at top,#3d2936,#1c121b 58%,#08070b)}
+#step3{background:radial-gradient(circle at top,#482a38,#1b111b 52%,#08070b)}.memory,.what{display:none}.memory.on,.what.on{display:block;animation:cardIn .8s ease}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.memory img,.memory video,.what img{width:100%;max-height:56vh;object-fit:contain;display:block;margin:20px auto;border-radius:22px;background:#050505;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+#step4{background:radial-gradient(circle at 50% 35%,#443023,#1b110d 65%,#080504)}.book{width:min(94vw,520px);min-height:430px;position:relative;margin:25px auto;perspective:1000px}
+.page{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;padding:35px 27px;border-radius:8px 22px 22px 8px;background:#f3e7cd;color:#392b24;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.page.on{display:flex;animation:cardIn .75s ease}.page p{font-style:italic}.bookbtn{color:#392b24;border-color:#786453;background:rgba(80,60,40,.05)}
+#step5{background:radial-gradient(circle at top,#513641,#221720 58%,#0b080c)}
+#step6{background:radial-gradient(circle at 50% 42%,#6b4228,#29170f 55%,#090605)}.firefly{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffdc7e;box-shadow:0 0 13px #ffcc55;animation:fly 6s infinite ease-in-out}
+@keyframes fly{50%{transform:translate(20px,-55px);opacity:.25}}.bigheart{display:inline-block;margin:28px;font-size:78px;animation:beat 1.5s infinite;filter:drop-shadow(0 0 22px rgba(255,70,100,.55))}#birthday{display:none;animation:cardIn 1s ease}
+#step7{background:radial-gradient(circle at 50% 15%,#27355b,#0e162d 50%,#050812)}.wishstar{font-size:70px;filter:drop-shadow(0 0 20px #ffe493);animation:beat 2s infinite}
+#wish{width:100%;height:130px;margin-top:25px;padding:17px;border:1px solid rgba(255,255,255,.2);border-radius:20px;outline:none;resize:none;background:rgba(255,255,255,.07);color:#fff}#wish::placeholder{color:rgba(255,255,255,.45)}#ending{display:none;margin-top:32px;animation:cardIn 1s ease}
+</style>
+</head>
+<body>
+<div id="lock"><div class="lockbox"><div class="lockheart">♡</div><h2>For Tripu</h2><p style="margin-top:10px;opacity:.65;font-size:14px">A little world made only for you.</p><input id="password" type="password" inputmode="numeric" maxlength="6" placeholder="••••••"><button id="enterBtn" class="btn" type="button">Enter ♡</button><div id="error"></div></div></div>
+<div id="afterPassword"><div class="video-wrap"><div class="small">ONE LITTLE THING FIRST ♡</div><h2 style="margin-top:14px">Before we begin…</h2><video id="afterPasswordVideo" class="special-video" controls playsinline preload="metadata"><source src="images/after-password.mp4" type="video/mp4"></video><button class="btn" type="button" onclick="closeAfterPassword()">Continue ♡</button></div></div>
+<section class="section active" id="step1">
+<svg id="sakura" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+<path class="branch" d="M-80 720 C100 620 150 430 315 330 C390 280 420 170 455 70"/><path class="twig" d="M100 600 C180 550 250 500 320 425"/><path class="twig" d="M160 505 C225 440 270 355 290 265"/><path class="twig" d="M270 390 C335 350 380 290 410 215"/>
+<path class="branch" d="M1080 720 C900 620 850 450 705 355 C625 300 590 195 555 70"/><path class="twig" d="M900 600 C820 550 770 500 705 425"/><path class="twig" d="M840 505 C775 440 730 355 710 265"/><path class="twig" d="M730 390 C665 350 620 290 595 215"/><g id="flowers"></g></svg>
+<div id="petals"></div><div class="content hero"><div class="small">23 · 09 · 2003</div><h2 style="margin-top:22px">And a little girl came into this world…</h2><p style="margin-top:18px">…who would one day become my world.</p><div class="trip">Tripu ♡</div><button class="btn" onclick="go(2)">Continue ♡</button></div>
+</section>
+
+<section class="section" id="step2"><div id="nightStars"></div><div class="moon"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="shooting"></div><div class="content"><div class="small">23 · 09 · 2003</div><h1 style="margin-top:18px">The Night She Was Born</h1><p style="margin-top:28px">That night, the moon belonged to everyone.</p><p class="soft" style="margin-top:13px">But you… were meant for my world. ♡</p><button class="btn" onclick="go(3)">Our Story →</button></div></section>
+
+<section class="section" id="step3"><div class="content">
+<div class="memory on"><div class="small">OUR STORY</div><h2 style="margin-top:15px">And then… there was you. ♡</h2><p style="margin-top:22px">Somewhere between ordinary days and little conversations, you became one of my favourite parts of life.</p><button class="btn" onclick="nextMemory()">Begin ♡</button></div>
+<div class="memory"><div class="small">MEMORY 01</div><img src="images/IMG_20260907_213448_965.jpg" alt="Our memory"><h2>It started with you…</h2><p>Pata nahi kab, kaise… but somewhere between those little conversations, you became my favourite person.</p><button class="btn" onclick="nextMemory()">Next ♡</button></div>
+<div class="memory"><div class="small">A LITTLE MOMENT</div><video controls playsinline preload="metadata"><source src="images/VID_20260920_061805_611.mp4" type="video/mp4"></video><p class="soft">Some moments don't need words. ♡</p><button class="btn" onclick="nextMemory()">Next ♡</button></div>
+<div class="memory"><div class="small">MEMORY 02</div><img src="images/IMG_20260920_184754_095.jpg" alt="Our memory"><h2>Then came “us.” ♡</h2><p>Those calls, those smiles, those stupid little moments… Shayad chhoti cheezein thi, par mere liye wahi sab kuch tha.</p><button class="btn" onclick="nextMemory()">Next ♡</button></div>
+<div class="memory"><div class="small">MEMORY 03</div><img src="images/IMG_20260920_185113_260.jpg" alt="Our memory"><h2>My favourite memories have your face in them.</h2><p>Photos toh bas moments capture karti hain… mujhe toh woh feeling yaad hai jab tum mere saath thi.</p><button class="btn" onclick="nextMemory()">Next ♡</button></div>
+<div class="memory"><div class="small">ONE MORE MOMENT</div><video controls playsinline preload="metadata"><source src="images/VID_20260920_062116_171.mp4" type="video/mp4"></video><p class="soft">If memories could play forever, maybe I'd leave this one on repeat. ♡</p><button class="btn" onclick="nextMemory()">Next ♡</button></div>
+<div class="memory"><div class="small">MEMORY 04</div><img src="images/Snapchat-894450935.jpg" alt="Our memory"><h2>And if I could go back…</h2><p>I wouldn't change those moments. I'd just stay in them a little longer with you. ♡</p><button class="btn" onclick="nextMemory()">One last thing…</button></div>
+<div class="memory"><h2>Some stories change with time…</h2><p>but that doesn't make the beautiful parts any less real.</p><p class="soft">Whatever life looks like now, I'm still grateful that once, there was you and me. ♡</p><button class="btn" onclick="go(4)">Turn the page ♡</button></div>
+</div></section>
+
+<section class="section" id="step4"><div class="content"><div class="small">THE BOOK</div><h2>If our story were a book…</h2><div class="book">
+<div class="page on"><p>They say people come into our lives and become chapters.</p><button class="btn bookbtn" onclick="nextPage()">Turn page →</button></div>
+<div class="page"><p>But I never wanted you to be a chapter.</p><button class="btn bookbtn" onclick="nextPage()">Turn page →</button></div>
+<div class="page"><p>I wanted you to be the whole book.<br><br>A book I could keep reading, page after page, memory after memory…</p><button class="btn bookbtn" onclick="nextPage()">Turn page →</button></div>
+<div class="page"><p>A book I never wanted to end. ♡<br><br>And somewhere in me, I still wish we had more pages.</p><button class="btn bookbtn" onclick="goBookVideo()">One more thing… ♡</button></div>
+</div></div></section>
+
+<section class="section" id="bookVideo"><div class="content"><div class="small">US BEING US 😂❤️</div><h2 style="margin-top:15px">Not every moment had to be serious… 😂</h2><video id="tagLoveVideo" class="special-video" controls playsinline preload="metadata"><source src="images/tag your love 😘.mp4" type="video/mp4"></video><p class="soft">Some moments were just cute, funny, and completely us. ❤️</p><button class="btn" onclick="go(5)">Okay, enough cuteness 😂 →</button></div></section>
+<section class="section" id="step5"><div class="content">
+<div class="what on"><div class="small">WHAT IF</div><h2>Sometimes I wondered…</h2><p class="soft">what if it had always been us? ♡</p><button class="btn" onclick="nextWhat()">Imagine ♡</button></div>
+<div class="what"><img src="images/file_000000009e60821196cd0784d92a13ca.png"><h2>What if…</h2><p>one day, it really became us? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_0000000055dc82119108a8ba964c803e.png"><h2>What if…</h2><p>I got to call you mine, forever? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_0000000023e48211b9282b378d279e56.png"><h2>What if…</h2><p>we built our own little world? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_00000000caaac8211bceea495cc123161.png"><h2>What if…</h2><p>our little world became a little bigger? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_000000000d7482119efa5ebbf5b9b418.png"><h2>What if…</h2><p>ordinary days became my favourite days? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_00000000539082118159d6319dcee4de.png"><h2>What if…</h2><p>we got to see the whole world together? ♡</p><button class="btn" onclick="nextWhat()">Next ♡</button></div>
+<div class="what"><img src="images/file_000000087a08211aa7125c98b4b702d.png"><h2>What if…</h2><p>after all those years… it was still you? ♡</p><button class="btn" onclick="nextWhat()">One last page…</button></div>
+<div class="what"><img src="images/file_00000009e60821196cd0784d92a13ca.png"><h2>Maybe it was only a “what if”…</h2><p class="soft">but it was a beautiful one. ♡</p><button class="btn" onclick="go(6)">Continue ♡</button></div>
+</div></section>
+
+<section class="section" id="step6"><div id="flies"></div><div class="content"><div id="beforeBirthday"><p>And after everything I wanted to show you…</p><h2>there's just one thing left to say.</h2><div class="bigheart" onclick="birthdayReveal()">❤️</div><div class="small">TAP THE HEART</div></div><div id="birthday"><div class="small">23 · 09</div><h1 style="color:#ffd6c2">Happy Birthday,<br>Tripu ❤️</h1><p>I hope this year gives you the kind of happiness you deserve.</p><p class="soft">Keep smiling, Beta. It has always looked beautiful on you. ♡</p><p style="margin-top:18px;font-size:clamp(20px,5vw,25px)">I love you so much, Beta 💋💞💞</p><p>I may not be beside you today… but I still wanted your day to feel a little special.</p><button class="btn" onclick="go(7)">One last thing… ✨</button></div></div></section>
+
+<section class="section" id="step7"><div id="wishStars"></div><div class="content"><div class="wishstar">✦</div><h2>One last thing, Beta… ♡</h2><p>Close your eyes.<br>Make a wish.<br>And write it here. ✨</p><textarea id="wish" placeholder="Write your wish here…"></textarea><button class="btn" onclick="sendWish()">Send My Wish ❤️</button><div id="ending"><h2>I hope it comes true. ♡</h2><p>Whatever you wished for… I really do.</p><p class="soft">Happy Birthday, Tripu. ❤️</p><p style="font-size:14px;opacity:.65">— from someone who still remembers 23 · 09</p></div></div></section>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+
+function unlock(){
+ const pass=$("#password").value.trim();
+ if(pass==="092003"){ $("#lock").style.display="none"; $("#error").textContent=""; $("#afterPassword").style.display="flex"; }
+ else { $("#error").textContent="That isn't our date ♡"; }
+}
+window.unlock=unlock;
+$("#enterBtn").addEventListener("click",unlock);
+$("#password").addEventListener("keydown",e=>{if(e.key==="Enter")unlock()});
+
+window.closeAfterPassword=function(){const v=$("#afterPasswordVideo");if(v)v.pause();$("#afterPassword").style.display="none";window.scrollTo(0,0)};
+window.goBookVideo=function(){$$("video").forEach(v=>v.pause());$$(".section").forEach(s=>s.classList.remove("active"));$("#bookVideo").classList.add("active");window.scrollTo(0,0)};
+window.go=function(n){
+ $$("video").forEach(v=>v.pause());
+ $$(".section").forEach(s=>s.classList.remove("active"));
+ $("#step"+n).classList.add("active");
+ window.scrollTo(0,0);
+};
+
+const NS="http://www.w3.org/2000/svg", layer=$("#flowers");
+function flower(x,y,delay,size){
+ const holder=document.createElementNS(NS,"g"); holder.setAttribute("transform",`translate(${x} ${y})`);
+ const f=document.createElementNS(NS,"g"); f.setAttribute("class","flower"); f.style.animationDelay=delay+"s";
+ for(let i=0;i<5;i++){const p=document.createElementNS(NS,"ellipse");p.setAttribute("cx","0");p.setAttribute("cy",-8*size);p.setAttribute("rx",5*size);p.setAttribute("ry",9*size);p.setAttribute("fill",i%2?"#ffd1dd":"#f5a4bd");p.setAttribute("transform",`rotate(${i*72})`);f.appendChild(p)}
+ const m=document.createElementNS(NS,"circle");m.setAttribute("r",3*size);m.setAttribute("fill","#ffe2a8");f.appendChild(m);holder.appendChild(f);layer.appendChild(holder);
+}
+const pts=[[55,665],[80,630],[110,595],[140,560],[170,520],[200,480],[235,445],[270,405],[300,370],[330,335],[360,300],[385,260],[405,220],[425,175],[445,125],[150,575],[190,540],[230,505],[270,465],[305,425],[320,380],[280,330],[290,285],[945,665],[920,630],[890,595],[860,560],[830,520],[800,480],[765,445],[730,405],[700,370],[670,335],[640,300],[615,260],[595,220],[575,175],[555,125],[850,575],[810,540],[770,505],[730,465],[695,425],[680,380],[720,330],[710,285]];
+pts.forEach((p,i)=>flower(p[0],p[1],.3+i*.055,.8+Math.random()*.5));
+
+for(let i=0;i<25;i++){const p=document.createElement("span");p.className="petal";p.style.left=Math.random()*100+"%";p.style.opacity=.3+Math.random()*.6;p.style.animationDuration=7+Math.random()*8+"s";p.style.animationDelay=Math.random()*9+"s";$("#petals").appendChild(p)}
+function stars(id,count){const b=$("#"+id);for(let i=0;i<count;i++){const s=document.createElement("span");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*92+"%";s.style.animationDelay=Math.random()*3+"s";b.appendChild(s)}}
+stars("nightStars",90);stars("wishStars",100);
+
+let memory=0; window.nextMemory=function(){const a=$$(".memory");const v=a[memory].querySelector("video");if(v)v.pause();a[memory].classList.remove("on");memory=Math.min(memory+1,a.length-1);a[memory].classList.add("on");window.scrollTo(0,0)};
+let page=0; window.nextPage=function(){const a=$$(".page");a[page].classList.remove("on");page=Math.min(page+1,a.length-1);a[page].classList.add("on")};
+let what=0; window.nextWhat=function(){const a=$$(".what");a[what].classList.remove("on");what=Math.min(what+1,a.length-1);a[what].classList.add("on");window.scrollTo(0,0)};
+
+for(let i=0;i<28;i++){const f=document.createElement("span");f.className="firefly";f.style.left=Math.random()*100+"%";f.style.top=Math.random()*100+"%";f.style.animationDelay=Math.random()*6+"s";f.style.animationDuration=4+Math.random()*5+"s";$("#flies").appendChild(f)}
+window.birthdayReveal=function(){$("#beforeBirthday").style.display="none";$("#birthday").style.display="block"};
+
+window.sendWish=function(){
+ const wish=$("#wish").value.trim();
+ if(!wish){alert("Pehle apni wish likho, Beta ✨");return}
+ const msg=`Tripu made a birthday wish ✨\n\n“${wish}”`;
+ $("#ending").style.display="block";
+ setTimeout(()=>{window.location.href="https://wa.me/919990905498?text="+encodeURIComponent(msg)},350);
+};
+})();
+</script>
+</body>
+</html>
